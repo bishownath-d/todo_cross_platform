@@ -6,7 +6,7 @@ import { styles } from "./styles";
 export default function Header({ title, author }) {
     return (
         <View style={styles.container}>
-            <AntDesign name="bars" size={24} style={styles.text} />
+            <AntDesign.Button name="bars" size={24} style={[styles.text, styles.buttonBG]} onPress={() => console.log("Pressed")} />
             <Text style={[styles.text, styles.title]}>{title}</Text>
             <View>
 

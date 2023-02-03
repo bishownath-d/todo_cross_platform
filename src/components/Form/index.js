@@ -37,10 +37,6 @@ export default function Form({ onAddTask }) {
 
             setTitle('')
             setDescription('')
-            setStatus(false)
-
-            // console.log("Set Status", setStatus)
-
 
             setErrorMessage([])
         }
@@ -106,9 +102,9 @@ export default function Form({ onAddTask }) {
                         value={status}
                     /> */}
                     <BouncyCheckbox
-                        isChecked={false}
-                        value={setStatus}
+                        value={status}
                         onPress={setStatus}
+
                     />
                     <Text
                         style={styles.text}

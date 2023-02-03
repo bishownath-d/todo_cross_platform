@@ -17,4 +17,7 @@ export const styles = StyleSheet.create({
         fontFamily: customFont,
         textAlign: "center"
     },
+    buttonBG: {
+        backgroundColor: headerBg
+    }
 })

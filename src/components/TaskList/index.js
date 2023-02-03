@@ -5,7 +5,7 @@ import { styles } from "./styles";
 export default function TaskList({ tasks, onChangeStatus }) {
     return (
         <View style={styles.container}>
-            <ScrollView>
+            <ScrollView stickyHeaderHiddenOnScroll={true}>
                 <Text style={styles.title}>TASK LIST</Text>
 
                 {tasks.map((task, index) => {
