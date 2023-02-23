@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { customFont, headerBg, textColor } from "../../includes/colors";
+import { customFont, formColor, headerBg, postCounterBg, textColor } from "../../includes/colors";
 
 
 export const styles = StyleSheet.create({
@@ -16,6 +16,17 @@ export const styles = StyleSheet.create({
         fontSize: 30,
         fontFamily: customFont,
         textAlign: "center"
+    },
+    modalContainer: {
+        paddingTop: 0,
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: postCounterBg
+    },
+    modalView: {
+        width: "80%",
     },
     buttonBG: {
         backgroundColor: headerBg

@@ -4,7 +4,7 @@ import { black, customFont, postListBg } from "../../includes/colors"
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: postListBg
+        backgroundColor: postListBg,
     },
     title: {
         color: black,
@@ -14,5 +14,16 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         fontFamily: customFont,
+    },
+    addButton: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        padding: 23,
+        borderRadius: 30,
+        backgroundColor: 'green'
     }
 })

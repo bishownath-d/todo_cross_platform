@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import { headerBg } from "../includes/colors";
+import { headerBg, postListBg } from "../includes/colors";
 
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: postListBg,
         justifyContent: 'flex-start',
         alignItems: 'stretch',
         paddingTop: 20,
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     postlist: {
         flex: 1,
         alignContent: 'space-around',
-        backgroundColor: 'aqua'
+        backgroundColor: 'white'
 
     },
     formcontent: {

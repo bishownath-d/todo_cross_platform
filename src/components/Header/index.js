@@ -1,6 +1,7 @@
-import { Platform, Text, View } from "react-native";
+import { Modal, Platform, Text, View } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
 import { styles } from "./styles";
+import Form from "./../Form"
 
 
 export default function Header({ title, author }) {
@@ -13,6 +14,14 @@ export default function Header({ title, author }) {
                 <Text style={styles.text}>By {author}</Text>
                 <Text style={[styles.text, styles.tagline]}>{Platform.OS === 'ios' ? 'iOS' : 'Android'}</Text>
             </View>
+
+            {/* <Modal>
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalView}>
+                        <Form />
+                    </View>
+                </View>
+            </Modal> */}
 
         </View>
     )

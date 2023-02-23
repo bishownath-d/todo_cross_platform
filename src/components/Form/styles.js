@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
-import { customFont, orange, textColor } from "../../includes/colors";
+import { customFont, headerBg, orange, textColor } from "../../includes/colors";
 
 
 export const styles = StyleSheet.create({
     container: {
+        flex: 1,
         padding: 30,
         flexDirection: 'column',
+        backgroundColor: headerBg
     },
     text: {
         color: textColor,
@@ -13,12 +15,18 @@ export const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center',
-        fontSize: 25,
+        fontSize: 30,
         fontFamily: customFont,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingBottom: 20
+    },
+    label: {
+        fontSize: 20,
+        paddingBottom: 10
     },
     inputField: {
-        paddingBottom: 10,
+        paddingBottom: 20,
+        marginBottom: 30,
         borderWidth: 1,
         borderColor: '#F9F5FF'
     },

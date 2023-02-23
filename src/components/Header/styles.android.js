@@ -16,4 +16,7 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         textAlign: "center"
     },
+    buttonBG: {
+        backgroundColor: headerBg
+    }
 })
