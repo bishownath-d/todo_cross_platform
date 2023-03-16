@@ -19,6 +19,7 @@ import TaskCounter from './src/components/TaskCounter';
 import { Provider } from 'react-redux'
 import { store } from './src/redux/store.js'
 import SettingScreen from './src/screens/SettingScreen';
+import { Ionicons } from '@expo/vector-icons';
 
 
 // this returns promise
@@ -213,8 +214,8 @@ export default function App({ navigation }) {
                 color,
                 size
               }) => {
-                const icon = focused ? 'add-circle-outline' : 'add-circle'
-                return <MaterialIcons name={icon} size={size} color={color} />;
+                const icon = focused ? 'settings-outline' : 'settings-sharp'
+                return <Ionicons name={icon} size={size} color={color} />;
               }
             }}>
               {(props) => {
