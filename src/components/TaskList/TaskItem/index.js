@@ -5,9 +5,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { cardColor } from "../../../includes/colors";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 
 export default function PostItem({ id, title, description, status, onChangeStatus, onDeleteTaskItemHandler, onSaveUpdateField }) {
+    const allowDelete = useSelector((state) => {
+        return state.preference.allowDelete
+    })
     const [showModal, setShowModal] = useState(false)
     const [isComplete, setIsComplete] = useState(status)
     const closeModal = () => {
@@ -35,7 +39,15 @@ export default function PostItem({ id, title, description, status, onChangeStatu
                             <Text style={styles.text}>{status ? "Completed" : "Incomplete"}</Text>
                         </View>
                         <View style={styles.buttonGroup}>
-                            <MaterialIcons.Button name="delete-outline" size={24} color="red" style={styles.deleteMI} onPressIn={() => onDeleteTaskItemHandler(title, id)} />
+                            {allowDelete && (
+                                <MaterialIcons.Button
+                                    name="delete-outline"
+                                    size={24}
+                                    color="red"
+                                    style={styles.deleteMI}
+                                    onPressIn={() => onDeleteTaskItemHandler(title, id)}
+                                />)}
+
                             <AntDesign.Button name="edit" size={24} color="green" backgroundColor={cardColor} onPress={closeModal} />
                         </View>
                     </View>

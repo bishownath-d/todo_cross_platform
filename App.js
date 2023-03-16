@@ -16,6 +16,9 @@ import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { cardColor, formColor, headerBg } from './src/includes/colors';
 import TaskCounterScreen from './src/screens/TaskCounterScreen';
 import TaskCounter from './src/components/TaskCounter';
+import { Provider } from 'react-redux'
+import { store } from './src/redux/store.js'
+import SettingScreen from './src/screens/SettingScreen';
 
 
 // this returns promise
@@ -122,86 +125,112 @@ export default function App({ navigation }) {
   }
 
   return (
+    <Provider store={store}>
+      <NavigationContainer>
+        <View style={styles.container} >
 
-    <NavigationContainer>
-      <View style={styles.container} >
+          <StatusBar style="auto" />
+          {/* Header */}
+          <Header title="To-Do App" author="Bishow" />
 
-        <StatusBar style="auto" />
-        {/* Header */}
-        <Header title="To-Do App" author="Bishow" />
+          {/* Task Count */}
+          <TaskCounter title="Total Tasks " tasks={tasks}></TaskCounter>
 
-        {/* Task Count */}
-        <TaskCounter title="Total Tasks " tasks={tasks}></TaskCounter>
-
-        <Tab.Navigator screenOptions={{
-          tabBarStyle: {
-            backgroundColor: headerBg
-          },
-          tabBarLabelStyle: {
-            color: 'white',
-          },
-          tabBarActiveTintColor: cardColor
-        }}>
-
-          {/* Task Screen */}
-          <Tab.Screen
-            name="Task"
-            options={{
-              title: "Task List",
-              tabBarIcon:
-                ({ focused, color, size }) => {
-                  const icon = focused ? 'file1' : 'filetext1'
-                  return (
-                    <AntDesign
-                      name={icon}
-                      size={size}
-                      color={color} />
-                  )
-                },
-              headerShown: false
-            }}>
-            {(props) => {
-              return (
-                <TaskScreen
-                  {...props}
-                  tasks={tasks}
-                  onDeleteTaskItemHandler={onDeleteTaskItemHandler}
-                  onChangeStatus={onChangeStatus}
-                />
-              )
-            }}
-          </Tab.Screen>
-
-          {/* formScreen */}
-          <Tab.Screen name="Form" options={{
-            title: "Add Task",
-            headerStyle: {
-              backgroundColor: formColor
+          <Tab.Navigator screenOptions={{
+            tabBarStyle: {
+              backgroundColor: headerBg
             },
-            headerTintColor: 'white',
-            tabBarIcon: ({
-              focused,
-              color,
-              size
-            }) => {
-              const icon = focused ? 'add-circle-outline' : 'add-circle'
-              return <MaterialIcons name={icon} size={size} color={color} />;
-            }
+            tabBarLabelStyle: {
+              color: 'white',
+            },
+            tabBarActiveTintColor: cardColor
           }}>
-            {(props) => {
-              return (
-                <FormScreen
-                  {...props}
-                  onAddTask={onAddTask}
-                />
-              )
-            }}
-          </Tab.Screen>
 
-        </Tab.Navigator>
+            {/* Task Screen */}
+            <Tab.Screen
+              name="Task"
+              options={{
+                title: "Task List",
+                tabBarIcon:
+                  ({ focused, color, size }) => {
+                    const icon = focused ? 'file1' : 'filetext1'
+                    return (
+                      <AntDesign
+                        name={icon}
+                        size={size}
+                        color={color} />
+                    )
+                  },
+                headerShown: false
+              }}>
+              {(props) => {
+                return (
+                  <TaskScreen
+                    {...props}
+                    tasks={tasks}
+                    onDeleteTaskItemHandler={onDeleteTaskItemHandler}
+                    onChangeStatus={onChangeStatus}
+                  />
+                )
+              }}
+            </Tab.Screen>
 
-      </View>
-    </NavigationContainer >
+            {/* formScreen */}
+            <Tab.Screen name="Form" options={{
+              title: "Add Task",
+              headerStyle: {
+                backgroundColor: formColor
+              },
+              headerTintColor: 'white',
+              tabBarIcon: ({
+                focused,
+                color,
+                size
+              }) => {
+                const icon = focused ? 'add-circle-outline' : 'add-circle'
+                return <MaterialIcons name={icon} size={size} color={color} />;
+              }
+            }}>
+              {(props) => {
+                return (
+                  <FormScreen
+                    {...props}
+                    onAddTask={onAddTask}
+                  />
+                )
+              }}
+            </Tab.Screen>
+
+            {/* settings */}
+            <Tab.Screen name="Setting" options={{
+              title: "Setting",
+              headerStyle: {
+                backgroundColor: formColor
+              },
+              headerTintColor: 'white',
+              tabBarIcon: ({
+                focused,
+                color,
+                size
+              }) => {
+                const icon = focused ? 'add-circle-outline' : 'add-circle'
+                return <MaterialIcons name={icon} size={size} color={color} />;
+              }
+            }}>
+              {(props) => {
+                return (
+                  <SettingScreen
+
+                  />
+                )
+              }}
+            </Tab.Screen>
+
+          </Tab.Navigator>
+
+        </View>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
